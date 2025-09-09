@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
+import { Button } from '../components/ui/button';
 import { Download, Eye, Mail, Github, Linkedin } from 'lucide-react';
-import heroBackground from '@/assets/hero-background.jpg';
-import profilePic from '@/assets/profiles.jpg'; // ✅ Add your profile picture here
+import heroBackground from '../assets/hero-background.jpg';
+import profilePic from '../assets/profiles.jpg'; // ✅ Add your profile picture here
 
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
