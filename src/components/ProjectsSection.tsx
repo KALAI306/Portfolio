@@ -2,17 +2,11 @@ import { useState, useEffect, useRef } from 'react';
 import { ExternalLink, Github, Calendar, Users, Shield, Calculator, Globe, GamepadIcon, Keyboard, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-// ❌ We will remove all these direct image imports
-// import hospitalProject from "../assets/hospital-project.jpg";
-// ... and so on for all images
-
 const ProjectsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    // ... your useEffect code remains the same
-// ... existing code ...
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -30,166 +24,148 @@ const ProjectsSection = () => {
   }, []);
 
   const projects = [
-  {
-    title: 'Momo - Personal Assistant',
-    description: 'Personal assistant system with React frontend and n8n backend for workflow automation and multi-agent orchestration. Integrated with Notion, Gmail, Google Calendar, and Telegram.',
-    // ✅ Use new URL() for the image path
-    image: new URL('../assets/momo-project.png', import.meta.url).href,
-    technologies: ['React.js', 'n8n', 'Notion API', 'Telegram Bot API', 'Gmail API', 'Google Calendar API', 'REST/Webhooks'],
-// ... existing code ...
-    features: [
-      'To-Do & Task Management (Notion)',
-      'Calendar Scheduling (Google Calendar)',
-      'Email Analysis (Gmail)',
-      'Telegram Bot Interface',
-      'Finance Agent (Bank SMS → Notion)',
-      'Multi-Agent Workflow Automation'
-    ],
-    liveUrl: 'https://personal-assistent-f439.vercel.app/',
-    githubUrl: 'https://github.com/KALAI306/Personal--assistent',
-    icon: Users,
-    color: 'hero-primary',
-    delay: '0s'
-  },
-  {
-    title: 'Netflix Clone',
-    description: 'Modern Netflix-style streaming platform with movie browsing, responsive design, and API-based dynamic content.',
-    // ✅ Use new URL() for the image path
-    image: new URL('../assets/netflix-project.png', import.meta.url).href,
-    technologies: ['React.js', 'CSS', 'JavaScript', 'TMDB API', 'Responsive Design'],
-// ... existing code ...
-    features: [
-      'Movie Browsing',
-      'Search Functionality',
-      'Responsive UI',
-      'Netflix-style Layout',
-      'Interactive Experience'
-    ],
-    liveUrl: 'https://netflix-main-sage.vercel.app/',
-    githubUrl: 'https://github.com/KALAI306/netflix-clone',
-    icon: Globe,
-    color: 'hero-secondary',
-    delay: '0.2s'
-  },
-  {
-    title: 'Hospital Appointment Management System',
-    description: 'Full-stack healthcare management platform with secure authentication and role-based access for doctors, patients, and receptionists.',
-    // ✅ Use new URL() for the image path
-    image: new URL('../assets/hospital-project.jpg', import.meta.url).href,
-    technologies: ['React.js', 'Spring Boot', 'MySQL', 'JWT Authentication', 'Railway', 'Vercel'],
-// ... existing code ...
-    features: [
-      'JWT Authentication',
-      'Role-based Access (Doctor, Patient, Receptionist)',
-      'Appointment Booking System',
-      'Real-time Updates'
-    ],
-    liveUrl: 'https://hospital-appoitment-management.vercel.app',
-    githubUrl: 'https://github.com/KALAI306/Hospital-Appoitment-Management',
-    icon: Calendar,
-    color: 'hero-accent',
-    delay: '0.4s'
-  },
-  {
-    title: 'Facebook Login Clone',
-    description: 'Pixel-perfect clone of Facebook login page with responsive design and advanced form validation.',
-    // ✅ Use new URL() for the image path
-    image: new URL('../assets/facebook-project.jpg', import.meta.url).href,
-    technologies: ['HTML', 'CSS', 'JavaScript'],
-// ... existing code ...
-    features: [
-      'Responsive Layout',
-      'Form Validation',
-      'Authentication UI Logic',
-      'Modern Design'
-    ],
-    liveUrl: 'https://facebook-ten-cyan.vercel.app/',
-    githubUrl: 'https://github.com/KALAI306/FAcebook-login-clone',
-    icon: Users,
-    color: 'hero-primary',
-    delay: '0.6s'
-  },
-  {
-    title: 'Web-based Calculator',
-    description: 'Lightweight web calculator with real-time calculations, clean interface, and keyboard support.',
-    // ✅ Use new URL() for the image path
-    image: new URL('../assets/calculator-project.jpg', import.meta.url).href,
-    technologies: ['HTML', 'CSS', 'JavaScript'],
-// ... existing code ...
-    features: [
-      'Real-time Calculations',
-      'Keyboard Input Support',
-      'Error Handling',
-      'Clean Responsive UI'
-    ],
-    liveUrl: 'https://web-based-calculator-sage.vercel.app/',
-    githubUrl: 'https://github.com/KALAI306/Web-Based-Calculator',
-    icon: Calculator,
-    color: 'hero-secondary',
-    delay: '0.8s'
-  },
-  {
-    title: 'RapidType - Typing Speed Test',
-    description: 'Typing test app that calculates WPM and accuracy in real time with performance analytics.',
-    // ✅ Use new URL() for the image path
-    image: new URL('../assets/rapid-type.png', import.meta.url).href,
-    technologies: ['HTML', 'CSS', 'JavaScript'],
-// ... existing code ...
-    features: [
-      'WPM Calculation',
-      'Accuracy Tracking',
-      'Real-time Feedback',
-      'Performance Statistics'
-    ],
-    liveUrl: 'https://rapid-type.vercel.app/',
-    githubUrl: 'https://github.com/KALAI306/RapidType',
-    icon: Zap,
-    color: 'hero-accent',
-    delay: '1.0s'
-  },
-  {
-    title: 'Rock Paper Scissors',
-    description: 'Interactive rock-paper-scissors game with animations and score tracking.',
-    // ✅ Use new URL() for the image path
-    image: new URL('../assets/rock-paper.png', import.meta.url).href,
-    technologies: ['HTML', 'CSS', 'JavaScript'],
-// ... existing code ...
-    features: [
-      'Interactive Gameplay',
-      'Score Tracking',
-      'Smooth Animations',
-      'Responsive Design'
-    ],
-    liveUrl: 'https://rock-paper-scissors-pink-beta.vercel.app/',
-    githubUrl: 'https://github.com/KALAI306/Rock-Paper-Scissors',
-    icon: GamepadIcon,
-    color: 'hero-secondary',
-    delay: '1.4s'
-  },
-  {
-    title: 'Tic-Tac-Toe Game',
-    description: 'React-based Tic-Tac-Toe with AI opponent, game state management, and engaging gameplay.',
-    // ✅ Use new URL() for the image path
-    image: new URL('../assets/tic-tac-toe.png', import.meta.url).href,
-    technologies: ['React.js', 'JavaScript', 'CSS'],
-// ... existing code ...
-    features: [
-      'AI Opponent',
-      'Game State Management',
-      'Responsive UI',
-      'Score Tracking'
-    ],
-    liveUrl: 'https://tic-tac-toe-peach-theta-29.vercel.app/',
-    githubUrl: 'https://github.com/KALAI306/Tic-Tac-Toe',
-    icon: GamepadIcon,
-    color: 'hero-primary',
-    delay: '1.2s'
-  }
-];
-
+    {
+      title: 'Momo - Personal Assistant',
+      description: 'Personal assistant system with React frontend and n8n backend for workflow automation and multi-agent orchestration. Integrated with Notion, Gmail, Google Calendar, and Telegram.',
+      image: '/momo-project.png', // ✅ Changed to a direct public path
+      technologies: ['React.js', 'n8n', 'Notion API', 'Telegram Bot API', 'Gmail API', 'Google Calendar API', 'REST/Webhooks'],
+      features: [
+        'To-Do & Task Management (Notion)',
+        'Calendar Scheduling (Google Calendar)',
+        'Email Analysis (Gmail)',
+        'Telegram Bot Interface',
+        'Finance Agent (Bank SMS → Notion)',
+        'Multi-Agent Workflow Automation'
+      ],
+      liveUrl: 'https://personal-assistent-f439.vercel.app/',
+      githubUrl: 'https://github.com/KALAI306/Personal--assistent',
+      icon: Users,
+      color: 'hero-primary',
+      delay: '0s'
+    },
+    {
+      title: 'Netflix Clone',
+      description: 'Modern Netflix-style streaming platform with movie browsing, responsive design, and API-based dynamic content.',
+      image: '/netflix-project.png', // ✅ Changed to a direct public path
+      technologies: ['React.js', 'CSS', 'JavaScript', 'TMDB API', 'Responsive Design'],
+      features: [
+        'Movie Browsing',
+        'Search Functionality',
+        'Responsive UI',
+        'Netflix-style Layout',
+        'Interactive Experience'
+      ],
+      liveUrl: 'https://netflix-main-sage.vercel.app/',
+      githubUrl: 'https://github.com/KALAI306/netflix-clone',
+      icon: Globe,
+      color: 'hero-secondary',
+      delay: '0.2s'
+    },
+    {
+      title: 'Hospital Appointment Management System',
+      description: 'Full-stack healthcare management platform with secure authentication and role-based access for doctors, patients, and receptionists.',
+      image: '/hospital-project.jpg', // ✅ Changed to a direct public path
+      technologies: ['React.js', 'Spring Boot', 'MySQL', 'JWT Authentication', 'Railway', 'Vercel'],
+      features: [
+        'JWT Authentication',
+        'Role-based Access (Doctor, Patient, Receptionist)',
+        'Appointment Booking System',
+        'Real-time Updates'
+      ],
+      liveUrl: 'https://hospital-appoitment-management.vercel.app',
+      githubUrl: 'https://github.com/KALAI306/Hospital-Appoitment-Management',
+      icon: Calendar,
+      color: 'hero-accent',
+      delay: '0.4s'
+    },
+    {
+      title: 'Facebook Login Clone',
+      description: 'Pixel-perfect clone of Facebook login page with responsive design and advanced form validation.',
+      image: '/facebook-project.jpg', // ✅ Changed to a direct public path
+      technologies: ['HTML', 'CSS', 'JavaScript'],
+      features: [
+        'Responsive Layout',
+        'Form Validation',
+        'Authentication UI Logic',
+        'Modern Design'
+      ],
+      liveUrl: 'https://facebook-ten-cyan.vercel.app/',
+      githubUrl: 'https://github.com/KALAI306/FAcebook-login-clone',
+      icon: Users,
+      color: 'hero-primary',
+      delay: '0.6s'
+    },
+    {
+      title: 'Web-based Calculator',
+      description: 'Lightweight web calculator with real-time calculations, clean interface, and keyboard support.',
+      image: '/calculator-project.jpg', // ✅ Changed to a direct public path
+      technologies: ['HTML', 'CSS', 'JavaScript'],
+      features: [
+        'Real-time Calculations',
+        'Keyboard Input Support',
+        'Error Handling',
+        'Clean Responsive UI'
+      ],
+      liveUrl: 'https://web-based-calculator-sage.vercel.app/',
+      githubUrl: 'https://github.com/KALAI306/Web-Based-Calculator',
+      icon: Calculator,
+      color: 'hero-secondary',
+      delay: '0.8s'
+    },
+    {
+      title: 'RapidType - Typing Speed Test',
+      description: 'Typing test app that calculates WPM and accuracy in real time with performance analytics.',
+      image: '/rapid-type.png', // ✅ Changed to a direct public path
+      technologies: ['HTML', 'CSS', 'JavaScript'],
+      features: [
+        'WPM Calculation',
+        'Accuracy Tracking',
+        'Real-time Feedback',
+        'Performance Statistics'
+      ],
+      liveUrl: 'https://rapid-type.vercel.app/',
+      githubUrl: 'https://github.com/KALAI306/RapidType',
+      icon: Zap,
+      color: 'hero-accent',
+      delay: '1.0s'
+    },
+    {
+      title: 'Rock Paper Scissors',
+      description: 'Interactive rock-paper-scissors game with animations and score tracking.',
+      image: '/rock-paper.png', // ✅ Changed to a direct public path
+      technologies: ['HTML', 'CSS', 'JavaScript'],
+      features: [
+        'Interactive Gameplay',
+        'Score Tracking',
+        'Smooth Animations',
+        'Responsive Design'
+      ],
+      liveUrl: 'https://rock-paper-scissors-pink-beta.vercel.app/',
+      githubUrl: 'https://github.com/KALAI306/Rock-Paper-Scissors',
+      icon: GamepadIcon,
+      color: 'hero-secondary',
+      delay: '1.4s'
+    },
+    {
+      title: 'Tic-Tac-Toe Game',
+      description: 'React-based Tic-Tac-Toe with AI opponent, game state management, and engaging gameplay.',
+      image: '/tic-tac-toe.png', // ✅ Changed to a direct public path
+      technologies: ['React.js', 'JavaScript', 'CSS'],
+      features: [
+        'AI Opponent',
+        'Game State Management',
+        'Responsive UI',
+        'Score Tracking'
+      ],
+      liveUrl: 'https://tic-tac-toe-peach-theta-29.vercel.app/',
+      githubUrl: 'https://github.com/KALAI306/Tic-Tac-Toe',
+      icon: GamepadIcon,
+      color: 'hero-primary',
+      delay: '1.2s'
+    }
+  ];
 
   return (
-// ... rest of your JSX code remains the same
     <section ref={sectionRef} id="projects" className="py-20 relative">
       <div className="container mx-auto px-4">
         {/* Section Header */}
