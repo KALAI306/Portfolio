@@ -1,22 +1,18 @@
 import { useState, useEffect, useRef } from 'react';
 import { ExternalLink, Github, Calendar, Users, Shield, Calculator, Globe, GamepadIcon, Keyboard, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import hospitalProject from "../assets/hospital-project.jpg";
-import facebookProject from "../assets/facebook-project.jpg";
-import calculatorProject from "../assets/calculator-project.jpg";
-import momoProject from "../assets/momo-project.png";
-import netflixProject from "../assets/netflix-project.png";
-import rockPaperProject from "../assets/rock-paper.png";
-import ticTacToeProject from "../assets/tic-tac-toe.png";
-import rapidTypeProject from "../assets/rapid-type.png";
 
-
+// ❌ We will remove all these direct image imports
+// import hospitalProject from "../assets/hospital-project.jpg";
+// ... and so on for all images
 
 const ProjectsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    // ... your useEffect code remains the same
+// ... existing code ...
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -37,8 +33,10 @@ const ProjectsSection = () => {
   {
     title: 'Momo - Personal Assistant',
     description: 'Personal assistant system with React frontend and n8n backend for workflow automation and multi-agent orchestration. Integrated with Notion, Gmail, Google Calendar, and Telegram.',
-    image: momoProject,
+    // ✅ Use new URL() for the image path
+    image: new URL('../assets/momo-project.png', import.meta.url).href,
     technologies: ['React.js', 'n8n', 'Notion API', 'Telegram Bot API', 'Gmail API', 'Google Calendar API', 'REST/Webhooks'],
+// ... existing code ...
     features: [
       'To-Do & Task Management (Notion)',
       'Calendar Scheduling (Google Calendar)',
@@ -56,8 +54,10 @@ const ProjectsSection = () => {
   {
     title: 'Netflix Clone',
     description: 'Modern Netflix-style streaming platform with movie browsing, responsive design, and API-based dynamic content.',
-    image: netflixProject,
+    // ✅ Use new URL() for the image path
+    image: new URL('../assets/netflix-project.png', import.meta.url).href,
     technologies: ['React.js', 'CSS', 'JavaScript', 'TMDB API', 'Responsive Design'],
+// ... existing code ...
     features: [
       'Movie Browsing',
       'Search Functionality',
@@ -74,8 +74,10 @@ const ProjectsSection = () => {
   {
     title: 'Hospital Appointment Management System',
     description: 'Full-stack healthcare management platform with secure authentication and role-based access for doctors, patients, and receptionists.',
-    image: hospitalProject,
+    // ✅ Use new URL() for the image path
+    image: new URL('../assets/hospital-project.jpg', import.meta.url).href,
     technologies: ['React.js', 'Spring Boot', 'MySQL', 'JWT Authentication', 'Railway', 'Vercel'],
+// ... existing code ...
     features: [
       'JWT Authentication',
       'Role-based Access (Doctor, Patient, Receptionist)',
@@ -91,8 +93,10 @@ const ProjectsSection = () => {
   {
     title: 'Facebook Login Clone',
     description: 'Pixel-perfect clone of Facebook login page with responsive design and advanced form validation.',
-    image: facebookProject,
+    // ✅ Use new URL() for the image path
+    image: new URL('../assets/facebook-project.jpg', import.meta.url).href,
     technologies: ['HTML', 'CSS', 'JavaScript'],
+// ... existing code ...
     features: [
       'Responsive Layout',
       'Form Validation',
@@ -108,8 +112,10 @@ const ProjectsSection = () => {
   {
     title: 'Web-based Calculator',
     description: 'Lightweight web calculator with real-time calculations, clean interface, and keyboard support.',
-    image: calculatorProject,
+    // ✅ Use new URL() for the image path
+    image: new URL('../assets/calculator-project.jpg', import.meta.url).href,
     technologies: ['HTML', 'CSS', 'JavaScript'],
+// ... existing code ...
     features: [
       'Real-time Calculations',
       'Keyboard Input Support',
@@ -125,8 +131,10 @@ const ProjectsSection = () => {
   {
     title: 'RapidType - Typing Speed Test',
     description: 'Typing test app that calculates WPM and accuracy in real time with performance analytics.',
-    image: rapidTypeProject,
+    // ✅ Use new URL() for the image path
+    image: new URL('../assets/rapid-type.png', import.meta.url).href,
     technologies: ['HTML', 'CSS', 'JavaScript'],
+// ... existing code ...
     features: [
       'WPM Calculation',
       'Accuracy Tracking',
@@ -142,8 +150,10 @@ const ProjectsSection = () => {
   {
     title: 'Rock Paper Scissors',
     description: 'Interactive rock-paper-scissors game with animations and score tracking.',
-    image: rockPaperProject,
+    // ✅ Use new URL() for the image path
+    image: new URL('../assets/rock-paper.png', import.meta.url).href,
     technologies: ['HTML', 'CSS', 'JavaScript'],
+// ... existing code ...
     features: [
       'Interactive Gameplay',
       'Score Tracking',
@@ -159,8 +169,10 @@ const ProjectsSection = () => {
   {
     title: 'Tic-Tac-Toe Game',
     description: 'React-based Tic-Tac-Toe with AI opponent, game state management, and engaging gameplay.',
-    image: ticTacToeProject,
+    // ✅ Use new URL() for the image path
+    image: new URL('../assets/tic-tac-toe.png', import.meta.url).href,
     technologies: ['React.js', 'JavaScript', 'CSS'],
+// ... existing code ...
     features: [
       'AI Opponent',
       'Game State Management',
@@ -177,6 +189,7 @@ const ProjectsSection = () => {
 
 
   return (
+// ... rest of your JSX code remains the same
     <section ref={sectionRef} id="projects" className="py-20 relative">
       <div className="container mx-auto px-4">
         {/* Section Header */}
@@ -200,11 +213,11 @@ const ProjectsSection = () => {
               <div
                 key={project.title}
                 className={`transition-all duration-1000 ${isVisible ? 'scale-in' : 'opacity-0'} 
-                           ${isMainProject ? 'lg:col-span-2' : ''}`}
+                            ${isMainProject ? 'lg:col-span-2' : ''}`}
                 style={{ animationDelay: project.delay }}
               >
                 <div className={`glass-card rounded-2xl overflow-hidden glow-hover group h-full 
-                                ${isMainProject ? 'lg:flex lg:items-center' : ''}`}>
+                                  ${isMainProject ? 'lg:flex lg:items-center' : ''}`}>
                   {/* Project Image */}
                   <div className={`relative overflow-hidden ${isMainProject ? 'lg:w-1/2' : 'h-64'}`}>
                     {project.image ? (
@@ -286,7 +299,7 @@ const ProjectsSection = () => {
                           <span
                             key={techIndex}
                             className="px-3 py-1 bg-skill-bg text-muted-foreground rounded-lg text-xs font-medium 
-                                     hover:bg-muted transition-colors duration-200"
+                                      hover:bg-muted transition-colors duration-200"
                           >
                             {tech}
                           </span>
